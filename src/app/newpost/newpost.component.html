@@ -1,0 +1,30 @@
+<div id="newpost">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div id="textarea">
+      <textarea formControlName="postText" placeholder="Responder"
+        [style.color]="visualService.getNightMode() ? 'white' : 'black'"
+        [style.background-color]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"
+        [style.border]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"></textarea>
+    </div>
+    <button type="submit" class="btn" [disabled]="postTime"
+      [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+      [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Enviar</button>
+    <span id="errors">
+      <span *ngIf="submitted && postForm.get('postText')?.errors?.['required']" class="error">texto</span>
+      <span *ngIf="submitted && postForm.get('postText')?.errors?.['maxlength']" class="error">max5000</span>
+      <span *ngIf="seconds > 0" class="error">Enviado, {{ seconds }} segundos</span>
+    </span>
+  </form>
+  <input type="text" [(ngModel)]="imageUrl" placeholder="Introduce URL de imagen"
+    [style.color]="visualService.getNightMode() ? 'white' : 'black'"
+    [style.background-color]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"
+    [style.border]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'" />
+  <button (click)="addImage()" class="btnSmall" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+    [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">OK</button>
+  <input type="text" [(ngModel)]="videoId" placeholder="Introduce ID (v=[ID]) de YouTube"
+    [style.color]="visualService.getNightMode() ? 'white' : 'black'"
+    [style.background-color]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"
+    [style.border]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'" />
+  <button (click)="addVideo()" class="btnSmall" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+    [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">OK</button>
+</div>

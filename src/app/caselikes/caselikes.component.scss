@@ -1,0 +1,21 @@
+#likes {
+    display: flex;
+    align-items: center;
+}
+
+.like {
+    cursor: pointer;
+}
+
+.nu {
+    margin: 2px;
+    font-weight: bold;
+}
+
+#likeNu {
+    color: green
+}
+
+#dislNu {
+    color: red;
+}

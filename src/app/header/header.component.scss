@@ -1,0 +1,54 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    margin: 0px;
+    color: darkorange;
+    font-size: 50px;
+    -webkit-text-stroke: 1px blue;
+    cursor: pointer;
+}
+
+#title {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+.btn {
+    width: 100px;
+    margin-right: 5px;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#account {
+    overflow: hidden;
+    width: 125px;
+    height: 175px;
+    margin: 5px;
+    position: fixed;
+    right: -135px;
+    z-index: 1;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    background: white;
+    transition: right 0.25s ease;
+}
+
+#account.show {
+    right: 0;
+}

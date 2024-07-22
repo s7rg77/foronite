@@ -1,0 +1,14 @@
+<div id="zones">
+  <div id="zonesHeader">
+    <h3>{{ signed() ? 'Conectado/a' : 'Accede o regístrate para poder publicar' }}</h3>
+    <app-search></app-search>
+  </div>
+  <ul>
+    <li *ngFor="let zone of zones" (click)="navigateToZone(zone)">
+      <a [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'">{{ zone.zone_name }}</a>
+    </li>
+  </ul>
+  <div id="cases">
+    <app-select></app-select>
+  </div>
+</div>

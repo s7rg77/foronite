@@ -1,0 +1,56 @@
+<div id="signinBody">
+    <div id="signinHeader">
+        <h3>Iniciar sesión</h3>
+    </div>
+    <div id="signin">
+        <form [formGroup]="formSignin" (ngSubmit)="onSubmit()">
+            <div class="form">
+                <label class="label">Email</label>
+                <input type="email" class="input" formControlName="user_mail" [ngClass]="{
+                        'ok': formSignin.get('user_mail')?.valid && (submitted || formSignin.get('user_mail')?.dirty),
+                        'ko': !formSignin.get('user_mail')?.valid && (submitted || formSignin.get('user_mail')?.dirty)
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': (submitted || formSignin.get('user_mail')?.dirty) ? (formSignin.get('user_mail')?.valid ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="(submitted || formSignin.get('user_mail')?.dirty) && formSignin.get('user_mail')?.errors?.['required']"
+                    class="error">
+                    Introduce email
+                </span>
+                <span
+                    *ngIf="(submitted || formSignin.get('user_mail')?.dirty) && formSignin.get('user_mail')?.errors?.['email']"
+                    class="error">
+                    Email erróneo
+                </span>
+            </div>
+            <div class="form">
+                <label class="label">Password</label>
+                <input type="password" class="input" formControlName="user_pass" [ngClass]="{
+                        'ok': formSignin.get('user_pass')?.valid && (submitted || formSignin.get('user_pass')?.dirty),
+                        'ko': !formSignin.get('user_pass')?.valid && (submitted || formSignin.get('user_pass')?.dirty)
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': (submitted || formSignin.get('user_pass')?.dirty) ? (formSignin.get('user_pass')?.valid ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="(submitted || formSignin.get('user_pass')?.dirty) && formSignin.get('user_pass')?.errors?.['required']"
+                    class="error">
+                    Introduce password
+                </span>
+                <span
+                    *ngIf="(submitted || formSignin.get('user_pass')?.dirty) && formSignin.get('user_pass')?.errors?.['minlength']"
+                    class="error">
+                    min6
+                </span>
+            </div>
+            <button type="submit" class="btn" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                Acceder
+            </button>
+            <span *ngIf="signinError" class="error">{{ signinError }}</span>
+        </form>
+    </div>
+</div>

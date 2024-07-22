@@ -1,0 +1,115 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+    min-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    margin: 0px;
+    padding: 5px;
+}
+
+#pages {
+    margin-right: 5px;
+    display: flex;
+}
+
+.page {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#back {
+    cursor: pointer;
+}
+
+ul {
+    margin: 0px;
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+#caseHeader {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background: linear-gradient(to right, rgba(darkorange, 0.30) 5%, rgba(darkorange, 0) 100%);
+}
+
+#user {
+    display: flex;
+    align-items: center;
+}
+
+#userimg {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+#userName {
+    color: darkorange;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 12px;
+}
+
+#case1 {
+    padding: 0px 5px;
+}
+
+#text {
+    padding: 10px 0px;
+    font-size: 14px;
+}
+
+#caseFooter {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-space-between {
+    justify-content: space-between;
+}
+
+.footer-center {
+    justify-content: center;
+}
+
+.btn {
+    width: 100px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#sign {
+    font-size: 12px;
+}

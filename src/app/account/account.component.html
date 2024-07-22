@@ -1,0 +1,17 @@
+<div [ngClass]="{ 'night-mode': nightmode }" id="account">
+    <div class="button">
+        <button class="btn" (click)="toUser()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+            [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Usuario</button>
+    </div>
+    <div class="button">
+        <button class="btn" (click)="nightMode()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+            [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+            {{ nightmode ? 'Modo Día' : 'Modo Noche' }}
+        </button>
+    </div>
+    <div class="button">
+        <button (click)="signOut()" class="btn" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+            [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Cerrar
+            sesión</button>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div id="signupBody">
+    <div id="signupHeader">
+        <h3>Registrarse</h3>
+    </div>
+    <div id="signup">
+        <form [formGroup]="formSignup" (ngSubmit)="onSubmit()">
+            <div class="form">
+                <label class="label">Nombre</label>
+                <input type="text" class="input" formControlName="user_name" [ngClass]="{
+                        'ok': formSignup.get('user_name')?.valid && (submitted || formSignup.get('user_name')?.dirty),
+                        'ko': !formSignup.get('user_name')?.valid && (submitted || formSignup.get('user_name')?.dirty)
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': (submitted || formSignup.get('user_name')?.dirty) ? (formSignup.get('user_name')?.valid ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="(submitted || formSignup.get('user_name')?.dirty) && formSignup.get('user_name')?.errors?.['required']"
+                    class="error">
+                    introduce nombre
+                </span>
+                <span
+                    *ngIf="(submitted || formSignup.get('user_name')?.dirty) && formSignup.get('user_name')?.errors?.['maxlength']"
+                    class="error">
+                    max10
+                </span>
+                <span
+                    *ngIf="(submitted || formSignup.get('user_name')?.dirty) && formSignup.get('user_name')?.errors?.['pattern']"
+                    class="error">
+                    azAZ123
+                </span>
+            </div>
+            <div class="form">
+                <label class="label">Email</label>
+                <input type="email" class="input" formControlName="user_mail" [ngClass]="{
+                        'ok': formSignup.get('user_mail')?.valid && (submitted || formSignup.get('user_mail')?.dirty),
+                        'ko': !formSignup.get('user_mail')?.valid && (submitted || formSignup.get('user_mail')?.dirty)
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': (submitted || formSignup.get('user_mail')?.dirty) ? (formSignup.get('user_mail')?.valid ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="(submitted || formSignup.get('user_mail')?.dirty) && formSignup.get('user_mail')?.errors?.['required']"
+                    class="error">
+                    Introduce email
+                </span>
+                <span
+                    *ngIf="(submitted || formSignup.get('user_mail')?.dirty) && formSignup.get('user_mail')?.errors?.['email']"
+                    class="error">
+                    Email erróneo
+                </span>
+            </div>
+            <div class="form">
+                <label class="label">Password</label>
+                <input type="password" class="input" formControlName="user_pass" [ngClass]="{
+                        'ok': formSignup.get('user_pass')?.valid && (submitted || formSignup.get('user_pass')?.dirty),
+                        'ko': !formSignup.get('user_pass')?.valid && (submitted || formSignup.get('user_pass')?.dirty)
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': (submitted || formSignup.get('user_pass')?.dirty) ? (formSignup.get('user_pass')?.valid ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="(submitted || formSignup.get('user_pass')?.dirty) && formSignup.get('user_pass')?.errors?.['required']"
+                    class="error">
+                    Introduce password
+                </span>
+                <span
+                    *ngIf="(submitted || formSignup.get('user_pass')?.dirty) && formSignup.get('user_pass')?.errors?.['minlength']"
+                    class="error">
+                    min6
+                </span>
+            </div>
+            <div class="form">
+                <label class="label">Confirmar Password</label>
+                <input type="password" class="input" formControlName="conf_pass" [ngClass]="{
+                        'ok': formSignup.get('conf_pass')?.valid && formSignup.get('conf_pass')?.dirty && formSignup.value.conf_pass === formSignup.value.user_pass,
+                        'ko': (!formSignup.get('conf_pass')?.valid || (formSignup.get('conf_pass')?.dirty && formSignup.value.conf_pass !== formSignup.value.user_pass)) && formSignup.get('conf_pass')?.dirty
+                    }" [ngStyle]="{
+                        'color': visualService.getNightMode() ? 'white' : 'black',
+                        'background-color': formSignup.get('conf_pass')?.dirty ? (formSignup.value.conf_pass === formSignup.value.user_pass ? 'limegreen' : 'tomato') : (visualService.getNightMode() ? 'dimgrey' : 'lightgrey'),
+                        'border': visualService.getNightMode() ? 'dimgrey' : 'lightgrey'
+                    }">
+                <span
+                    *ngIf="formSignup.get('conf_pass')?.dirty && formSignup.value.conf_pass !== formSignup.value.user_pass"
+                    class="error">
+                    Confirma password
+                </span>
+            </div>
+            <button type="submit" class="btn" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                Registrarse
+            </button>
+        </form>
+    </div>
+</div>

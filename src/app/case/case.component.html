@@ -1,0 +1,35 @@
+<div id="case">
+    <ul>
+        <li *ngFor="let case of case1">
+            <div id="title">
+                <h3><span id="back" (click)="goBack()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'">{{ case.zone_name }}</span> / {{ case.case_name }}</h3>
+                <div id="pages">
+                    <button class="page" *ngFor="let page of getPageNumber()" (click)="goToPage(page)"
+                        [style.border]="page == currentPage ? '2px solid darkorange' : 'none'"
+                        [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                        [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                        {{ page }}
+                    </button>
+                </div>
+            </div>
+            <div id="case1" *ngIf="currentPage == 1">
+                <div id="caseHeader">
+                    <div id="user">
+                        <img id="userimg" [src]="case.user_icon ? '../../img/' + case.user_icon : '../../assets/user.svg'"
+                            alt="user icon">
+                        <span id="userName">{{ case.user_name }}</span>
+                    </div>
+                    <span id="date">{{ dateService.formatDate(case.case_date) }}</span>
+                </div>
+                <div id="text" [innerHTML]="case.case_text"></div>
+                <div [ngClass]="{ 'footer-center': !signed(), 'footer-space-between': signed() }" id="caseFooter">
+                    <div></div>
+                    <div id="sign">{{ case.user_sign }}</div>
+                    <app-caselikes *ngIf="signed()" [caseId]="caseId" [likeNu]="case.like_nu" [dislNu]="case.disl_nu"
+                        [likeType]="case.like_type"></app-caselikes>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <app-posts [caseId]="caseId" [currentPage]="currentPage" [totalPages]="totalPages"></app-posts>
+</div>

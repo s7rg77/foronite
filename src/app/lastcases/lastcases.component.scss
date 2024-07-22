@@ -1,0 +1,122 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 0px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px 5px;
+    border-top: 2px solid darkorange;
+    list-style-type: none;
+    font-size: 16px;
+}
+
+li {
+    padding: 5px 0px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+#caseName:hover {
+    cursor: pointer;
+}
+
+#userName {
+    width: 100px;
+    color: darkorange;
+}
+
+#data01 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#data01left {
+    display: flex;
+    align-items: center;
+}
+
+#data02 {
+    margin-top: 5px;
+    display: flex;
+    font-size: 12px;
+}
+
+#data03 {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+#data03left {
+    width: 120px;
+    display: flex;
+}
+
+#data03right {
+    display: flex;
+    font-size: 12px;
+}
+
+#accessNu {
+    width: 70px;
+    display: flex;
+    align-items: center;
+}
+
+#answNu {
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#answNuIMG {
+    margin-right: 5px;
+    width: 15px;
+}
+
+#lastUser {
+    color: #00C800;
+    font-size: 12px;
+}
+
+#caseLike {
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#caseLikeIMG {
+    width: 15px;
+    margin-right: 5px;
+}
+
+#caseDislike {
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#caseDislikeIMG {
+    width: 15px;
+    margin-right: 5px;
+}
+
+#zoneName {
+    margin-left: 5px;
+    font-size: 12px;
+}

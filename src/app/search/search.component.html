@@ -1,0 +1,40 @@
+<div id="search">
+    <form>
+        <label for="searchText"></label>
+        <input type="text" id="searchText" [formControl]="searchTextControl" placeholder="Buscador"
+            [style.color]="visualService.getNightMode() ? 'white' : 'black'"
+            [style.background-color]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"
+            [style.border]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'">
+    </form>
+    <ul *ngIf="showResults" [ngClass]="{ 'night-mode': nightmode }" [style.z-index]="showResults ? '2' : 'auto'">
+        <li *ngFor="let case of searchResults">
+            <div>
+                <a id="caseName" (click)="navigateToCase(case)"
+                    [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'">{{ case.case_name }}</a>
+                <div id="data">
+                    <div id="userName">{{ case.user_name }}</div>
+                    <div id="sizeCase">
+                        <svg id="sizeCaseIMG" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                            <path
+                                d="M11.504 9.203H3.477a.49.49 0 0 1-.493-.492.49.49 0 0 1 .493-.492h8.027a.491.491 0 1 1 0 .984zM11.504 6.848H3.477a.493.493 0 0 1 0-.989h8.027a.494.494 0 1 1 0 .988zm0 0" />
+                            <path
+                                d="M4.18 14.254a.488.488 0 0 1-.348-.145l-1.527-1.527h-.586c-.903 0-1.637-.73-1.637-1.633V4.117c0-.902.734-1.637 1.637-1.637h11.547c.902 0 1.636.735 1.636 1.637v6.832c0 .903-.734 1.633-1.636 1.633H6.055L4.53 14.109a.49.49 0 0 1-.351.145zM1.719 3.469a.65.65 0 0 0-.649.648v6.832c0 .356.293.645.649.645h.793c.129 0 .254.054.347.144l1.32 1.325 1.325-1.325a.5.5 0 0 1 .348-.144h7.414c.355 0 .648-.29.648-.645V4.117a.65.65 0 0 0-.648-.648zm0 0"
+                                alt="sizeCase" />
+                        </svg>
+                        <div>{{ case.size_case }}</div>
+                    </div>
+                    <div id="postDate">
+                        <svg id="postDateIMG" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                            <path
+                                d="M1.281 8.043c.012.004.024.012.035.016.028.02.059.035.09.046l.047.012c.027.012.059.02.09.024.008 0 .012.004.023.004a.72.72 0 0 0 .207-.008.236.236 0 0 0 .075-.024l.047-.011a.37.37 0 0 0 .078-.043.182.182 0 0 0 .039-.02.64.64 0 0 0 .097-.082l1.235-1.234a.655.655 0 0 0-.7-1.078 5.195 5.195 0 0 1 4.852-3.348 5.218 5.218 0 0 1 4.719 3.02.659.659 0 1 0 1.195-.551A6.533 6.533 0 0 0 7.496.98a6.521 6.521 0 0 0-6.234 4.63.66.66 0 0 0-.864-.165.659.659 0 0 0-.218.907l.902 1.48a.535.535 0 0 0 .074.102c.008.007.012.015.02.02.031.034.07.062.105.089zM14.805 8.633l-.903-1.485c0-.003-.007-.003-.007-.007-.024-.036-.047-.063-.07-.09-.005-.008-.012-.016-.016-.024-.032-.03-.07-.058-.106-.086-.012-.007-.023-.011-.035-.02a.636.636 0 0 0-.09-.042c-.015-.008-.031-.008-.047-.016a.607.607 0 0 0-.09-.02c-.007-.003-.015-.003-.023-.007-.012 0-.023.004-.031 0-.02 0-.032-.004-.047-.004-.012 0-.027.004-.04.004-.019.004-.038.004-.058.008a.341.341 0 0 0-.086.02 1.027 1.027 0 0 1-.05.011.826.826 0 0 0-.083.043c-.011.008-.027.012-.043.023a.536.536 0 0 0-.105.086l-1.234 1.23a.66.66 0 0 0 .699 1.083 5.2 5.2 0 0 1-4.852 3.344A5.187 5.187 0 0 1 2.7 9.512a.657.657 0 1 0-1.21.515 6.505 6.505 0 0 0 6 3.973 6.517 6.517 0 0 0 6.23-4.625.658.658 0 0 0 1.086-.742zm0 0"
+                                alt="postDate" />
+                        </svg>
+                        <div id="lastDate">{{ dateService.formatDate(case.last_date) }}</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div *ngIf="showResults" (click)="closeResults()"
+    style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1;"></div>

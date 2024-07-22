@@ -1,0 +1,25 @@
+<div id="posts">
+    <ul>
+        <li *ngFor="let post of posts">
+            <div id="postHeader"
+                [style.background]="visualService.getNightMode() ? 'linear-gradient(to right, rgba(255, 255, 255, 0.30) 5%, rgba(255, 255, 255, 0) 100%)' : 'linear-gradient(to right, rgba(128, 128, 128, 0.25) 5%, rgba(128, 128, 128, 0) 100%)'">
+                <div id="user">
+                    <img id="userimg" [src]="post.user_icon ? '../../img/' + post.user_icon : '../../assets/user.svg'"
+                        alt="user icon">
+                    <span id="userName">{{ post.user_name }}</span>
+                </div>
+                <span id="date">{{ dateService.formatDate(post.post_date) }}</span>
+            </div>
+            <div id="text" [innerHTML]="post.post_text"></div>
+            <div [ngClass]="{ 'footer-center': !signed(), 'footer-space-between': signed() }" id="postFooter">
+                <button *ngIf="signed()" (click)="newpostcomponent.addQuote(post.user_name, post.post_text)" class="btn"
+                    [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                    [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Citar</button>
+                <div id="sign">{{ post.user_sign }}</div>
+                <app-postlikes *ngIf="signed()" [postId]="post.post_id" [likeNu]="post.like_nu" [dislNu]="post.disl_nu"
+                    [likeType]="post.like_type"></app-postlikes>
+            </div>
+        </li>
+    </ul>
+    <app-newpost *ngIf="signed()" [caseId]="caseId" (postSubmitted)="goToLastPage()"></app-newpost>
+</div>

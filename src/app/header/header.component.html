@@ -1,0 +1,34 @@
+<header
+    [style.background-image]="visualService.getNightMode() ? 'linear-gradient(to right, dimgrey, transparent)' : 'linear-gradient(to right, lightgrey, transparent)'">
+    <span>
+        <button id="title" (click)="goToZones()">
+            <h1>foronite</h1>
+        </button>
+    </span>
+    <span id="buttons" [style.z-index]="showAccount ? '2' : 'auto'">
+        <ng-container *ngIf="getSign() === ''">
+            <button class="btn" (click)="toSignin()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.background-color]="visualService.getNightMode() ? 'black' : 'white'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                Acceder
+            </button>
+            <button class="btn" (click)="toSignup()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.background-color]="visualService.getNightMode() ? 'black' : 'white'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                Registro
+            </button>
+        </ng-container>
+        <ng-container *ngIf="getSign() !== ''">
+            <button class="btn" (click)="account()" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.background-color]="visualService.getNightMode() ? 'black' : 'white'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                {{ showAccount ? 'Cerrar' : 'Cuenta' }}
+            </button>
+        </ng-container>
+    </span>
+</header>
+<div id="account" [ngClass]="{'show': showAccount}" [style.z-index]="showAccount ? '2' : 'auto'">
+    <app-account (accountClosed)="closeAccount()"></app-account>
+</div>
+<div *ngIf="showAccount" (click)="closeAccount()"
+    style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1;"></div>

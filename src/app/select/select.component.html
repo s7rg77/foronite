@@ -1,0 +1,10 @@
+<div id="buttons">
+    <button class="btn" (click)="showComponent('lastcases')" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'" [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Ultimos</button>
+    <button class="btn" (click)="showComponent('accesscases')" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'" [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Más visitados</button>
+    <button class="btn" (click)="showComponent('likecases')" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'" [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Más likes</button>
+</div>
+<div id="cases">
+    <app-lastcases *ngIf="currentComponent === 'lastcases'"></app-lastcases>
+    <app-accesscases *ngIf="currentComponent === 'accesscases'"></app-accesscases>
+    <app-likecases *ngIf="currentComponent === 'likecases'"></app-likecases>
+</div>

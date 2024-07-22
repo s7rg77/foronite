@@ -1,0 +1,39 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#zonesHeader {
+    height: 60px;
+    margin: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px 5px;
+    border-top: 2px solid darkorange;
+    border-bottom: 2px solid darkorange;
+    list-style-type: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+li {
+    padding: 5px 0px;
+    border-bottom: 1px solid;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+app-search {
+    display: flex;
+}

@@ -1,0 +1,61 @@
+<h3>#topVisits15</h3>
+<ul>
+  <li *ngFor="let case of cases">
+    <div id="data01">
+      <div id="data01left">
+        <a id="caseName" (click)="navigateToCase(case)"
+          [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'">{{
+          case.case_name }}</a>
+      </div>
+      <div id="zoneName">{{ case.zone_name }}</div>
+    </div>
+    <div id="data02">
+      <span id="userName">{{ case.user_name }}</span>
+      <span id="caseLike">
+        <svg id="caseLikeIMG" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+          <path style="stroke:none;fill-rule:nonzero;fill:#00C800;fill-opacity:1"
+            d="M14.902 7.492c0 4.09-3.32 7.41-7.41 7.41s-7.41-3.32-7.41-7.41 3.32-7.41 7.41-7.41 7.41 3.32 7.41 7.41zm0 0" />
+          <path style="stroke:none;fill-rule:nonzero;fill:#fff;fill-opacity:1"
+            d="M3.398 11h1.68a.237.237 0 0 0 .238-.238V6.285a.237.237 0 0 0-.238-.238h-1.68zM10.965 7.281c.34 0 .62-.277.62-.617a.623.623 0 0 0-.62-.621H9c.344-.613.352-2.484-.46-2.711-.153-.043-.306.074-.321.234-.14 1.313-.946 2.942-1.762 2.993H5.82v3.91h.328c.18 0 .348.058.5.156.368.246.989.387 1.586.375h2.27a.62.62 0 1 0 0-1.238h.277a.617.617 0 0 0 .617-.621.614.614 0 0 0-.617-.618h.184c.34 0 .62-.28.62-.62a.623.623 0 0 0-.62-.622zm0 0"
+            alt="caseLike" />
+        </svg>
+        <span id="likeNu">{{ case.like_nu }}</span>
+      </span>
+      <span id="caseDislike">
+        <svg id="caseDislikeIMG" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+          <path style="stroke:none;fill-rule:nonzero;fill:#ff5c5c;fill-opacity:1"
+            d="M14.902 7.492c0 4.09-3.32 7.41-7.41 7.41s-7.41-3.32-7.41-7.41 3.32-7.41 7.41-7.41 7.41 3.32 7.41 7.41zm0 0" />
+          <path style="stroke:none;fill-rule:nonzero;fill:#fff;fill-opacity:1"
+            d="M3.39 4.645h1.68c.133 0 .23.097.23.226v4.48c0 .133-.097.231-.23.231H3.39zM10.965 8.363a.628.628 0 1 1 0 1.254H9.008c.344.61.344 2.485-.461 2.715-.149.05-.313-.082-.328-.23-.153-1.317-.942-2.946-1.766-2.997h-.64V5.172h.328a.897.897 0 0 0 .496-.164c.363-.25.988-.399 1.582-.383h2.27a.628.628 0 0 1 0 1.254h.296a.624.624 0 1 1 0 1.25h.18c.348 0 .629.281.629.625 0 .348-.281.61-.63.61zm0 0"
+            alt="caseDislike" />
+        </svg>
+        <span id="dislikeNu">{{ case.disl_nu }}</span>
+      </span>
+    </div>
+    <div id="data03">
+      <div id="data03left">
+        <span id="accessNu">
+          <span>Visitas: {{ case.acce_n }}</span>
+        </span>
+        <span id="answNu">
+          <svg id="answNuIMG" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+            <path
+              d="M11.504 9.203H3.477a.49.49 0 0 1-.493-.492.49.49 0 0 1 .493-.492h8.027a.491.491 0 1 1 0 .984zM11.504 6.848H3.477a.493.493 0 0 1 0-.989h8.027a.494.494 0 1 1 0 .988zm0 0" />
+            <path
+              d="M4.18 14.254a.488.488 0 0 1-.348-.145l-1.527-1.527h-.586c-.903 0-1.637-.73-1.637-1.633V4.117c0-.902.734-1.637 1.637-1.637h11.547c.902 0 1.636.735 1.636 1.637v6.832c0 .903-.734 1.633-1.636 1.633H6.055L4.53 14.109a.49.49 0 0 1-.351.145zM1.719 3.469a.65.65 0 0 0-.649.648v6.832c0 .356.293.645.649.645h.793c.129 0 .254.054.347.144l1.32 1.325 1.325-1.325a.5.5 0 0 1 .348-.144h7.414c.355 0 .648-.29.648-.645V4.117a.65.65 0 0 0-.648-.648zm0 0"
+              alt="answNu" />
+          </svg>
+          <span>{{ case.answ_n }}</span>
+        </span>
+      </div>
+      <div id="data03right">
+        <span id="lastDate">
+          Último: {{ dateService.formatDate(case.last_date) }}
+        </span>
+        <span id="lastUser" [style.marginLeft]="case.last_user ? '5px' : '0'">
+          {{ case.last_user}}
+        </span>
+      </div>
+    </div>
+  </li>
+</ul>

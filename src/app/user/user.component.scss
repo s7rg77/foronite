@@ -1,0 +1,76 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#userHeader {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    margin-left: 5px;
+}
+
+#data {
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    border-top: 2px solid darkorange;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+li {
+    margin: 5px;
+}
+
+#userimg {
+    height: 100px;
+    width: 100px;
+}
+
+label {
+    margin: 0px 5px;
+}
+
+#forms {
+    margin-bottom: 5px;
+}
+
+.form {
+    margin: 5px 0px;
+}
+
+.input {
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.btn {
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.error {
+    margin-left: 5px;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}

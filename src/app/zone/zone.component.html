@@ -1,0 +1,16 @@
+<div id="zone">
+    <div id="zoneHeader">
+        <h3 *ngFor="let zone of zone1"><span id="back" (click)="goBack()"
+                [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'">home</span> /
+            {{ zone.zone_name }}</h3>
+        <div id="pages">
+            <button class="page" *ngFor="let page of getPageNumber()" (click)="goToPage(page)"
+                [style.border]="page == currentPage ? '2px solid darkorange' : 'none'"
+                [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+                [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">
+                {{ page }}
+            </button>
+        </div>
+    </div>
+    <app-cases [zoneId]="zoneId" [currentPage]="currentPage" [totalPages]="totalPages"></app-cases>
+</div>

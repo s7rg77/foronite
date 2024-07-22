@@ -1,0 +1,43 @@
+<div id="userBody">
+  <div id="userHeader">
+    <h3>Usuario</h3>
+  </div>
+  <div id="data">
+    <ul *ngFor="let data of user">
+      <li>Nombre: {{ data.user_name }}</li>
+      <li>Password: {{ data.user_pass }}</li>
+      <li>Email: {{ data.user_mail }}</li>
+      <li>Imagen: <img id="userimg" [src]="data.user_icon ? '../../img/' + data.user_icon : '../../assets/user.svg'"
+          alt="user icon"></li>
+      <form id="imageForm" [formGroup]="imageForm" (ngSubmit)="editIcon()" enctype="multipart/form-data">
+        <div class="form">
+          <label for="userIcon">Elige imagen</label>
+          <input type="file" formControlName="userIcon" id="userIcon" name="file"
+            accept="image/gif, image/jpeg, image/png">
+        </div>
+        <div>
+          <button type="submit" class="btn" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+            [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Guardar</button>
+          <span *ngIf="submitted && imageForm.get('userIcon')?.errors?.['validateIcon01']" class="error">max1MB</span>
+          <span *ngIf="submitted && imageForm.get('userIcon')?.errors?.['validateIcon02']" class="error">only
+            gif/jpg/png</span>
+        </div>
+      </form>
+      <li>Firma: {{ data.user_sign }}</li>
+      <form id="dataForm" [formGroup]="dataForm" (ngSubmit)="editUser()">
+        <div class="form">
+          <label for="userSign">Elige firma</label>
+          <input type="text" class="input" formControlName="userSign" id="userSign"
+            [style.color]="visualService.getNightMode() ? 'white' : 'black'"
+            [style.background-color]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'"
+            [style.border]="visualService.getNightMode() ? 'dimgrey' : 'lightgrey'">
+        </div>
+        <button type="submit" class="btn" [style.color]="visualService.getNightMode() ? 'cyan' : 'blue'"
+          [style.box-shadow]="visualService.getNightMode() ? '3px 3px 5px rgba(0, 255, 255, 0.7)' : '3px 3px 5px rgba(0, 0, 0, 0.5)'">Guardar</button>
+        <span *ngIf="dataForm.get('userSign')?.dirty && dataForm.get('userSign')?.errors?.['maxlength']"
+          class="error">max50</span>
+      </form>
+      <li>Registro: {{ dateService.formatDate(data.user_date) }}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+}
+
+.night-mode {
+    color: white;
+    background: linear-gradient(to bottom, black, navy);
+    border-bottom: white;
+    fill: white;
+
+    ::placeholder {
+        color: white;
+    }
+}
+
+.quote {
+    margin: 5px 0px;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.quoteHeader {
+    font-weight: bold;
+}
+
+.quoteName {
+    color: darkorange;
+    font-weight: bold;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outlet {
+    width: 100%;
+    max-width: 1200px;
+    min-height: calc(100vh - 160px);
+}
+
+app-header,
+app-footer {
+    width: 100%;
+}
