@@ -7,9 +7,10 @@ import { VisualService } from '../visual.service';
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss'
 })
+
 export class SelectComponent {
 
-  currentComponent: string = 'lastcases';
+  currentComponent: string = '';
 
   constructor(
     public visualService: VisualService
